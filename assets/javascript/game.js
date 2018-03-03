@@ -8,6 +8,8 @@ var emerald = Math.floor(Math.random() * 12); console.log ('emerald', emerald);
 var diamond = Math.floor(Math.random() * 12); console.log ('diamond', diamond);
 var gem = Math.floor(Math.random() * 12); console.log ('gem', gem);
 var ruby = Math.floor(Math.random() * 12); console.log ('ruby', ruby);
+var wins = 0;
+var losses = 0;
 
 var statusDiv = $(".status");
 
@@ -35,26 +37,27 @@ $(".crystalDiv").on("click", ".ruby", function() {
 });
 
 function empty() {
-  $(".targetDiv").empty();
-  $(".scoreDiv").empty();
+  // $(".targetDiv").empty();
+  // $(".scoreDiv").empty();
   score = 0;
   target = Math.floor(Math.random() * 100); console.log ('target', target);
   emerald = Math.floor(Math.random() * 12); console.log ('emerald', emerald);
   diamond = Math.floor(Math.random() * 12); console.log ('diamond', diamond);
   gem = Math.floor(Math.random() * 12); console.log ('gem', gem);
   ruby = Math.floor(Math.random() * 12); console.log ('ruby', ruby);
-
 };
 
 function winCondition(){
   targetDiv.text(target);
   scoreDiv.text(score);
   if (target === score){
-    statusDiv.text('WINNER');
+    wins++
+    statusDiv.text('You win! ' + 'wins: '+ wins + ' losses: ' + losses);
     statusDiv.attr('class','win');
     empty();
   } else if (target < score) {
-    statusDiv.text('Big L');
+    losses++
+    statusDiv.text('Big L! '+ 'wins: '+ wins + 'losses: ' + losses);
     statusDiv.attr('class','lose');
     empty();
   } 
