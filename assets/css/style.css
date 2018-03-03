@@ -2,6 +2,12 @@ body{
   font-family: 'Karma', serif;
 }
 
-h1{
-  
+.win{
+  background: green;
+  color: white;
+}
+
+.lose{
+  background: red;
+  color: white;
 }
